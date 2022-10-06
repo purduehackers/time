@@ -1,6 +1,6 @@
 {
   "name": "@purduehackers/time",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "convert between traditional time and lightning time ⚡️",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -26,6 +26,10 @@
   },
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "lightning",
+    "time"
   ],
   "author": "Matthew Stanciu",
   "license": "MIT",
