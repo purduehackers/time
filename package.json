@@ -1,0 +1,26 @@
+{
+  "name": "@purduehackers/time",
+  "version": "0.0.1",
+  "description": "convert between traditional time and lightning time ⚡️",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/purduehackers/time.git"
+  },
+  "keywords": [
+    "time"
+  ],
+  "author": "MatthewStanciu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/purduehackers/time/issues"
+  },
+  "homepage": "https://github.com/purduehackers/time",
+  "dependencies": {
+    "rgb-hex": "^4.0.0"
+  }
+}
