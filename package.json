@@ -1,6 +1,6 @@
 {
   "name": "@purduehackers/time",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "convert between traditional time and lightning time ⚡️",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/purduehackers/time",
   "dependencies": {
-    "rgb-hex": "^4.0.0"
+    "rgb-hex": "3.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.8.2",
