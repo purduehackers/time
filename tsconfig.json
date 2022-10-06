@@ -14,8 +14,11 @@
     "outDir": "dist"
   },
   "ts-node": {
-    "files": true
+    "files": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "test/test.ts"],
   "exclude": ["node_modules"]
 }
