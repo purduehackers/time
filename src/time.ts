@@ -28,8 +28,8 @@ export class LightningTime {
       colors,
       originalTimeString: time.toLocaleTimeString([], {
         hour: 'numeric',
-        minute: '2-digit'
-      })
+        minute: '2-digit',
+      }),
     }
   }
 
@@ -68,7 +68,7 @@ export class LightningTime {
     return {
       boltColor,
       zapColor,
-      sparkColor
+      sparkColor,
     }
   }
 }

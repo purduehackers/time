@@ -1,5 +1,7 @@
+/* eslint-disable */
 const fs = require('fs')
 const Path = require('path')
+/* eslint-enable */
 
 const deleteFolderRecursive = (path) => {
   if (fs.existsSync(path)) {

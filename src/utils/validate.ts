@@ -1,4 +1,4 @@
-const validate = (lightningString: string) => {
+const validate = (lightningString: string): boolean => {
   const tildeCount = (lightningString.match(/~/g) || []).length
   const validCharacters = /[0-9a-f]+$/g.test(
     lightningString.replace('~', '').replace('|', '')

@@ -14,7 +14,7 @@ const getParts = (lightningString: string): LightningTimeObject => {
     bolts,
     zaps,
     sparks,
-    charges
+    charges,
   }
 }
 

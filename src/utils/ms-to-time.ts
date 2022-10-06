@@ -18,9 +18,9 @@ const msToTime = (
     withSeconds: date.toLocaleTimeString(),
     withoutSeconds: date.toLocaleTimeString([], {
       hour: 'numeric',
-      minute: '2-digit'
+      minute: '2-digit',
     }),
-    lightningString
+    lightningString,
   }
 }
 
