@@ -1,6 +1,6 @@
 {
   "name": "@purduehackers/time",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "convert between traditional time and lightning time ⚡️",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
