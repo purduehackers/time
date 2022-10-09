@@ -28,6 +28,11 @@ describe('from lightning', () => {
     expect(convert.withoutSeconds).toEqual('12:00 PM')
     expect(convert.lightningString).toEqual('8~0~0|a')
   })
+  it('should throw an error when time format is incorrect', () => {
+    expect(() => convertFromLightning('8~0|')).toThrow(
+      'lightning string 8~0| is in an invalid format'
+    )
+  })
 })
 
 describe('get colors', () => {
@@ -38,5 +43,10 @@ describe('get colors', () => {
       zapColor: '3200d6',
       sparkColor: 'f68500'
     })
+  })
+  it('should throw an error when time format is incorrect', () => {
+    expect(() => getColors('8~0|')).toThrow(
+      'lightning string 8~0| is in an invalid format'
+    )
   })
 })
