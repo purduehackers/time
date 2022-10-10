@@ -60,6 +60,16 @@ const lt = new LightningTime({
 })
 ```
 
+You can also set colors after initializing a Lightning Time object like this:
+
+```javascript
+lt.setStaticColors({
+  staticBoltColors: [120, 240],
+  staticZapColors: [130, 130],
+  staticSparkColors: [50, 206]
+})
+```
+
 ## Convert a Date to Lightning Time
 
 ```javascript

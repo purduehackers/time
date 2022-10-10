@@ -104,3 +104,25 @@ describe('get colors', () => {
     )
   })
 })
+
+describe('set colors', () => {
+  it('should set custom colors after initialization', () => {
+    const lt = new LightningTime()
+    const colors = lt.getColors('8~1~a')
+    expect(colors).toMatchObject({
+      boltColor: '81a100',
+      zapColor: '321ad6',
+      sparkColor: 'f685a0'
+    })
+
+    lt.setStaticColors({
+      staticBoltColors: [120, 240]
+    })
+    const colors2 = lt.getColors('8~1~a')
+    expect(colors2).toMatchObject({
+      boltColor: '8178f0',
+      zapColor: '321ad6',
+      sparkColor: 'f685a0'
+    })
+  })
+})

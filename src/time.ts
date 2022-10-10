@@ -20,6 +20,22 @@ export class LightningTime {
     this.staticColors = { boltColors, zapColors, sparkColors }
   }
 
+  setStaticColors(customColors?: {
+    staticBoltColors?: number[]
+    staticZapColors?: number[]
+    staticSparkColors?: number[]
+  }) {
+    const boltColors =
+      customColors?.staticBoltColors || this.staticColors.boltColors
+    const zapColors =
+      customColors?.staticZapColors || this.staticColors.zapColors
+    const sparkColors =
+      customColors?.staticSparkColors || this.staticColors.sparkColors
+    validateCustomColors(boltColors, zapColors, sparkColors)
+
+    this.staticColors = { boltColors, zapColors, sparkColors }
+  }
+
   convertToLightning(time: Date): LightningString {
     const millisPerCharge = 1318.359375 // 86400000 / 16^4
 
