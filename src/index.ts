@@ -1,3 +1,3 @@
-import { convertToLightning, convertFromLightning, getColors } from './time'
+import { LightningTime } from './time'
 
-export { convertToLightning, convertFromLightning, getColors }
+export { LightningTime }
