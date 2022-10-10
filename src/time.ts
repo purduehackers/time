@@ -1,18 +1,22 @@
 import rgbHex from 'rgb-hex'
 import getParts from './utils/get-parts'
 import msToTime from './utils/ms-to-time'
-import validate from './utils/validate'
+import validate from './utils/validate-lightning-string'
+import validateCustomColors from './utils/validate-custom-colors'
 
 export class LightningTime {
   staticColors: StaticColors
 
-  constructor(staticColors?: StaticColors) {
-    const boltColors = staticColors?.boltColors || { bolt1: 161, bolt2: 0 }
-    const zapColors = staticColors?.zapColors || { zap1: 50, zap2: 214 }
-    const sparkColors = staticColors?.sparkColors || {
-      spark1: 246,
-      spark2: 133
-    }
+  constructor(customColors?: {
+    staticBoltColors?: number[]
+    staticZapColors?: number[]
+    staticSparkColors?: number[]
+  }) {
+    const boltColors = customColors?.staticBoltColors || [161, 0]
+    const zapColors = customColors?.staticZapColors || [50, 214]
+    const sparkColors = customColors?.staticSparkColors || [246, 133]
+    validateCustomColors(boltColors, zapColors, sparkColors)
+
     this.staticColors = { boltColors, zapColors, sparkColors }
   }
 
@@ -78,17 +82,17 @@ export class LightningTime {
     const staticColors = this.staticColors
     const boltColor = rgbHex(
       bolts * 16 + zaps,
-      staticColors.boltColors.bolt1,
-      staticColors.boltColors.bolt2
+      staticColors.boltColors[0],
+      staticColors.boltColors[1]
     )
     const zapColor = rgbHex(
-      staticColors.zapColors.zap1,
+      staticColors.zapColors[0],
       zaps * 16 + sparks,
-      staticColors.zapColors.zap2
+      staticColors.zapColors[1]
     )
     const sparkColor = rgbHex(
-      staticColors.sparkColors.spark1,
-      staticColors.sparkColors.spark2,
+      staticColors.sparkColors[0],
+      staticColors.sparkColors[1],
       sparks * 16 + charges
     )
 

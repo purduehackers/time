@@ -53,9 +53,9 @@ describe('get colors', () => {
   })
   it('should get colors with custom colors set', () => {
     const lt2 = new LightningTime({
-      boltColors: { bolt1: 120, bolt2: 240 },
-      zapColors: { zap1: 130, zap2: 130 },
-      sparkColors: { spark1: 50, spark2: 206 }
+      staticBoltColors: [120, 240],
+      staticZapColors: [130, 130],
+      staticSparkColors: [50, 206]
     })
     const colors = lt2.getColors('8~1~a')
     expect(colors).toMatchObject({
@@ -63,6 +63,38 @@ describe('get colors', () => {
       zapColor: '821a82',
       sparkColor: '32cea0'
     })
+  })
+  it('should get colors with only some custom colors set', () => {
+    const lt2 = new LightningTime({
+      staticBoltColors: [120, 240],
+      staticZapColors: [130, 130]
+    })
+    const colors = lt2.getColors('8~1~a')
+    expect(colors).toMatchObject({
+      boltColor: '8178f0',
+      zapColor: '821a82',
+      sparkColor: 'f685a0'
+    })
+  })
+  it('should throw an error when a custom time array is invalid', () => {
+    expect(
+      () =>
+        new LightningTime({
+          staticBoltColors: [120]
+        })
+    ).toThrow('Custom colors must have a length of 2.')
+
+    expect(() => {
+      new LightningTime({
+        staticBoltColors: [120, 130, 140, 150]
+      })
+    }).toThrow('Custom colors must have a length of 2.')
+
+    expect(() => {
+      new LightningTime({
+        staticBoltColors: [120, 300]
+      })
+    }).toThrow('Color values must be between 0 and 255 (RGB).')
   })
   it('should throw an error when time format is incorrect', () => {
     expect(() => lightningTime.getColors('8~0|')).toThrow(
