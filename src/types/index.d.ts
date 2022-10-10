@@ -13,6 +13,7 @@ interface LightningTimeObject {
 interface TraditionalTimeString {
   withSeconds: string
   withoutSeconds: string
+  date: Date
   lightningString?: string
 }
 

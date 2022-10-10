@@ -16,7 +16,8 @@ const msToTime = (millis: number): TraditionalTimeString => {
     withoutSeconds: date.toLocaleTimeString([], {
       hour: 'numeric',
       minute: '2-digit'
-    })
+    }),
+    date
   }
 }
 
