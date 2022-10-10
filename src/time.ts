@@ -46,8 +46,7 @@ export class LightningTime {
       sparks.toString(16) +
       (charges > 0 ? '|' + charges.toString(16) : '')
     return {
-      lightningString,
-      originalTimeString: time.toLocaleTimeString()
+      lightningString
     }
   }
 
@@ -67,7 +66,7 @@ export class LightningTime {
     }
     const millis = (elapsed * 86400000) / (charges > 0 ? 65536 : 4096)
 
-    return msToTime(millis, lightningString)
+    return msToTime(millis)
   }
 
   getColors(lightningString: string): Colors {

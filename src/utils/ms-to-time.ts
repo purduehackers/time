@@ -1,7 +1,4 @@
-const msToTime = (
-  millis: number,
-  lightningString: string
-): TraditionalTimeString => {
+const msToTime = (millis: number): TraditionalTimeString => {
   const ms = millis % 1000
   millis = (millis - ms) / 1000
   const secs = millis % 60
@@ -18,9 +15,8 @@ const msToTime = (
     withSeconds: date.toLocaleTimeString(),
     withoutSeconds: date.toLocaleTimeString([], {
       hour: 'numeric',
-      minute: '2-digit',
-    }),
-    lightningString,
+      minute: '2-digit'
+    })
   }
 }
 
