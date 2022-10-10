@@ -30,7 +30,7 @@ zap: 50, (dynamic value), 214
 spark: 246, 133, (dynamic value)
 ```
 
-If you want to change the static colors, you can do so by initializing a Lightning Time object like so:
+If you want to change the static colors, you can do so by initializing a Lightning Time object like this:
 
 ```javascript
 const lt = new LightningTime({
