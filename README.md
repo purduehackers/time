@@ -80,7 +80,7 @@ Assumes it's currently 12:07 AM
 
 returns {
   lightningString: '0~1~3|e'
-  strippedCharge: '0~1~3'
+  strippedCharges: '0~1~3'
 }
 */
 ```
