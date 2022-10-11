@@ -1,6 +1,6 @@
 interface LightningString {
   lightningString: string
-  originalTimeString?: string
+  strippedCharges: string
 }
 
 interface LightningTimeObject {

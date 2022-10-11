@@ -12,6 +12,25 @@ describe('to lightning', () => {
   })
 })
 
+describe('strip charges', () => {
+  it('should strip charges after conversion', () => {
+    const time = new Date()
+    time.setHours(12)
+    time.setMinutes(1)
+    time.setSeconds(9)
+    const lt = new LightningTime()
+    const convert = lt.convertToLightning(time)
+    expect(convert.lightningString).toEqual('8~0~3|4')
+    const strip = convert.strippedCharges
+    expect(strip).toEqual('8~0~3')
+  })
+  it('should strip charges', () => {
+    const lt = new LightningTime()
+    const strip = lt.stripCharges('8~0~0|e')
+    expect(strip).toEqual('8~0~0')
+  })
+})
+
 describe('from lightning', () => {
   const lightningTime = new LightningTime()
   it('should convert from lightning', () => {

@@ -3,6 +3,7 @@ import getParts from './utils/get-parts'
 import msToTime from './utils/ms-to-time'
 import validate from './utils/validate-lightning-string'
 import validateCustomColors from './utils/validate-custom-colors'
+import stripCharges from './utils/strip-charges'
 
 export class LightningTime {
   staticColors: StaticColors
@@ -62,8 +63,13 @@ export class LightningTime {
       sparks.toString(16) +
       (charges > 0 ? '|' + charges.toString(16) : '')
     return {
-      lightningString
+      lightningString,
+      strippedCharges: stripCharges(lightningString)
     }
+  }
+
+  stripCharges(lightningString: string) {
+    return stripCharges(lightningString)
   }
 
   convertFromLightning(lightningString: string): TraditionalTimeString {
