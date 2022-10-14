@@ -10,6 +10,15 @@ describe('to lightning', () => {
     const convert = lightningTime.convertToLightning(time)
     expect(convert.lightningString).toEqual('8~0~0|0')
   })
+  it('should convert to lightning and get stripped charges', () => {
+    const time = new Date()
+    time.setHours(12)
+    time.setMinutes(0)
+    time.setSeconds(0)
+    const lightningTime = new LightningTime()
+    const convert = lightningTime.convertToLightning(time)
+    expect(convert.strippedCharges).toEqual('8~0~0')
+  })
 })
 
 describe('strip charges', () => {
