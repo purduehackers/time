@@ -8,7 +8,7 @@ describe('to lightning', () => {
     time.setSeconds(0)
     const lightningTime = new LightningTime()
     const convert = lightningTime.convertToLightning(time)
-    expect(convert.lightningString).toEqual('8~0~0')
+    expect(convert.lightningString).toEqual('8~0~0|0')
   })
 })
 
