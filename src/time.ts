@@ -61,7 +61,8 @@ export class LightningTime {
       zaps.toString(16) +
       '~' +
       sparks.toString(16) +
-      (charges > 0 ? '|' + charges.toString(16) : '')
+      '|' +
+      charges.toString(16)
     return {
       lightningString,
       strippedCharges: stripCharges(lightningString)
