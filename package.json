@@ -1,15 +1,23 @@
 {
   "name": "@purduehackers/time",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "convert between traditional time and lightning time ⚡️",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.js",
+  "tsup": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "splitting": false,
+    "sourcemap": true,
+    "clean": true
+  },
   "scripts": {
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
-    "build": "tsup src/* --format esm,cjs --legacy-output",
+    "build": "tsup --format esm,cjs --legacy-output --dts",
     "package": "npm run build && npm pack",
     "test": "jest --no-cache --runInBand",
     "test:cov": "jest --coverage --no-cache --runInBand"
