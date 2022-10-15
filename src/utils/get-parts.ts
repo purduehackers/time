@@ -1,4 +1,4 @@
-import { LightningTimeObject } from '@purduehackers/time'
+import { LightningTimeObject } from '../types'
 
 const getParts = (lightningString: string): LightningTimeObject => {
   const lightningParts = lightningString.split('~')

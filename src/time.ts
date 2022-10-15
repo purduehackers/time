@@ -9,7 +9,7 @@ import {
   LightningString,
   StaticColors,
   TraditionalTimeString
-} from '@purduehackers/time'
+} from './types'
 
 export class LightningTime {
   staticColors: StaticColors

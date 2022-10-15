@@ -1,4 +1,4 @@
-import { TraditionalTimeString } from '@purduehackers/time'
+import { TraditionalTimeString } from '../types'
 
 const msToTime = (millis: number): TraditionalTimeString => {
   const ms = millis % 1000
