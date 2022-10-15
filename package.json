@@ -1,6 +1,6 @@
 {
   "name": "@purduehackers/time",
-  "version": "0.3.6",
+  "version": "0.3.11",
   "description": "convert between traditional time and lightning time ⚡️",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -17,7 +17,7 @@
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
-    "build": "tsup --format esm,cjs --legacy-output --dts",
+    "build": "cp src/types/index.d.ts dist/index.d.ts && tsup --format esm,cjs --legacy-output",
     "package": "npm run build && npm pack",
     "test": "jest --no-cache --runInBand",
     "test:cov": "jest --coverage --no-cache --runInBand"
@@ -46,7 +46,7 @@
     "rgb-hex": "3.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.1",
+    "@types/jest": "^29.1.2",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
     "eslint": "^7.32.0",

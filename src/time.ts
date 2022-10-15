@@ -4,6 +4,12 @@ import msToTime from './utils/ms-to-time'
 import validate from './utils/validate-lightning-string'
 import validateCustomColors from './utils/validate-custom-colors'
 import stripCharges from './utils/strip-charges'
+import {
+  Colors,
+  LightningString,
+  StaticColors,
+  TraditionalTimeString
+} from '@purduehackers/time'
 
 export class LightningTime {
   staticColors: StaticColors

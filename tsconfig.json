@@ -4,6 +4,7 @@
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "declaration": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*"]

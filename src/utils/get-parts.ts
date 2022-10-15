@@ -1,3 +1,5 @@
+import { LightningTimeObject } from '@purduehackers/time'
+
 const getParts = (lightningString: string): LightningTimeObject => {
   const lightningParts = lightningString.split('~')
   const bolts = parseInt(lightningParts[0], 16)
@@ -14,7 +16,7 @@ const getParts = (lightningString: string): LightningTimeObject => {
     bolts,
     zaps,
     sparks,
-    charges,
+    charges
   }
 }
 

@@ -1,3 +1,5 @@
+import { TraditionalTimeString } from '@purduehackers/time'
+
 const msToTime = (millis: number): TraditionalTimeString => {
   const ms = millis % 1000
   millis = (millis - ms) / 1000
