@@ -80,7 +80,12 @@ Assumes it's currently 12:07 AM
 
 returns {
   lightningString: '0~1~3|e'
-  strippedCharges: '0~1~3'
+  strippedCharges: '0~1~3',
+  colors: {
+    boltColor: '#01a100',
+    zapColor: '#3213d6',
+    sparkColor: '#f6853e'
+  }
 }
 */
 ```

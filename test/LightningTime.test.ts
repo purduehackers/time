@@ -19,6 +19,19 @@ describe('to lightning', () => {
     const convert = lightningTime.convertToLightning(time)
     expect(convert.strippedCharges).toEqual('8~0~0')
   })
+  it('should convert to lightning and get colors', () => {
+    const time = new Date()
+    time.setHours(12)
+    time.setMinutes(0)
+    time.setSeconds(0)
+    const lightningTime = new LightningTime()
+    const convert = lightningTime.convertToLightning(time)
+    expect(convert.colors).toMatchObject({
+      boltColor: '80a100',
+      zapColor: '3200d6',
+      sparkColor: 'f68500'
+    })
+  })
 })
 
 describe('strip charges', () => {

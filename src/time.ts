@@ -71,7 +71,8 @@ export class LightningTime {
       charges.toString(16)
     return {
       lightningString,
-      strippedCharges: stripCharges(lightningString)
+      strippedCharges: stripCharges(lightningString),
+      colors: this.getColors(lightningString)
     }
   }
 

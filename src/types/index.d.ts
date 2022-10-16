@@ -1,6 +1,7 @@
 export interface LightningString {
   lightningString: string
   strippedCharges: string
+  colors: Colors
 }
 
 export interface LightningTimeObject {
