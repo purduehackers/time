@@ -126,9 +126,9 @@ export class LightningTime {
     )
 
     return {
-      boltColor,
-      zapColor,
-      sparkColor
+      boltColor: `#${boltColor}`,
+      zapColor: `#${zapColor}`,
+      sparkColor: `#${sparkColor}`
     }
   }
 }
