@@ -27,9 +27,22 @@ describe('to lightning', () => {
     const lightningTime = new LightningTime()
     const convert = lightningTime.convertToLightning(time)
     expect(convert.colors).toMatchObject({
-      boltColor: '80a100',
-      zapColor: '3200d6',
-      sparkColor: 'f68500'
+      boltColor: '#80a100',
+      zapColor: '#3200d6',
+      sparkColor: '#f68500'
+    })
+  })
+})
+
+describe('get parts', () => {
+  it('should get parts', () => {
+    const lt = new LightningTime()
+    const parts = lt.getParts('8~0~0|e')
+    expect(parts).toMatchObject({
+      bolts: '8',
+      zaps: '0',
+      sparks: '0',
+      charges: 'e'
     })
   })
 })
@@ -81,17 +94,17 @@ describe('get colors', () => {
   it('should get colors', () => {
     const colors = lightningTime.getColors('8~1~a')
     expect(colors).toMatchObject({
-      boltColor: '81a100',
-      zapColor: '321ad6',
-      sparkColor: 'f685a0'
+      boltColor: '#81a100',
+      zapColor: '#321ad6',
+      sparkColor: '#f685a0'
     })
   })
   it('should get colors with charge', () => {
     const colors = lightningTime.getColors('8~1~a|e')
     expect(colors).toMatchObject({
-      boltColor: '81a100',
-      zapColor: '321ad6',
-      sparkColor: 'f685ae'
+      boltColor: '#81a100',
+      zapColor: '#321ad6',
+      sparkColor: '#f685ae'
     })
   })
   it('should get colors with custom colors set', () => {
@@ -102,9 +115,9 @@ describe('get colors', () => {
     })
     const colors = lt2.getColors('8~1~a')
     expect(colors).toMatchObject({
-      boltColor: '8178f0',
-      zapColor: '821a82',
-      sparkColor: '32cea0'
+      boltColor: '#8178f0',
+      zapColor: '#821a82',
+      sparkColor: '#32cea0'
     })
   })
   it('should get colors with only some custom colors set', () => {
@@ -114,9 +127,9 @@ describe('get colors', () => {
     })
     const colors = lt2.getColors('8~1~a')
     expect(colors).toMatchObject({
-      boltColor: '8178f0',
-      zapColor: '821a82',
-      sparkColor: 'f685a0'
+      boltColor: '#8178f0',
+      zapColor: '#821a82',
+      sparkColor: '#f685a0'
     })
   })
   it('should throw an error when a custom time array is invalid', () => {
@@ -151,9 +164,9 @@ describe('set colors', () => {
     const lt = new LightningTime()
     const colors = lt.getColors('8~1~a')
     expect(colors).toMatchObject({
-      boltColor: '81a100',
-      zapColor: '321ad6',
-      sparkColor: 'f685a0'
+      boltColor: '#81a100',
+      zapColor: '#321ad6',
+      sparkColor: '#f685a0'
     })
 
     lt.setStaticColors({
@@ -161,9 +174,9 @@ describe('set colors', () => {
     })
     const colors2 = lt.getColors('8~1~a')
     expect(colors2).toMatchObject({
-      boltColor: '8178f0',
-      zapColor: '321ad6',
-      sparkColor: 'f685a0'
+      boltColor: '#8178f0',
+      zapColor: '#321ad6',
+      sparkColor: '#f685a0'
     })
   })
 })

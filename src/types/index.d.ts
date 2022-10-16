@@ -9,6 +9,14 @@ export interface LightningTimeObject {
   zaps: number
   sparks: number
   charges: number
+  toString: Function
+}
+
+export interface LightningTimeParts {
+  bolts: string
+  zaps: string
+  sparks: string
+  charges: string
 }
 
 export interface TraditionalTimeString {

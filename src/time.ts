@@ -7,6 +7,7 @@ import stripCharges from './utils/strip-charges'
 import {
   Colors,
   LightningString,
+  LightningTimeParts,
   StaticColors,
   TraditionalTimeString
 } from './types'
@@ -74,6 +75,10 @@ export class LightningTime {
       strippedCharges: stripCharges(lightningString),
       colors: this.getColors(lightningString)
     }
+  }
+
+  getParts(lightningString: string): LightningTimeParts {
+    return getParts(lightningString).toString()
   }
 
   stripCharges(lightningString: string) {

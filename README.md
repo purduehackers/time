@@ -90,6 +90,21 @@ returns {
 */
 ```
 
+## Get Parts
+
+```javascript
+lt.getParts('8~0~0|e')
+
+/*
+returns {
+  bolts: '8',
+  zaps: '0',
+  sparks: '0',
+  charges: 'e'
+}
+*/
+```
+
 ## Strip Charges
 
 ```javascript
