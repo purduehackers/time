@@ -7,8 +7,12 @@ const validateCustomColors = (
   if (all.length !== 6) {
     throw new Error('Custom colors must have a length of 2.')
   }
-  if (all.some((color) => color < 0 || color > 255)) {
-    throw new Error('Color values must be between 0 and 255 (RGB).')
+  if (
+    all.some((color) => color < 0 || color > 255 || !Number.isInteger(color))
+  ) {
+    throw new Error(
+      'Color values must be integer values between 0 and 255 (RGB).'
+    )
   }
 }
 

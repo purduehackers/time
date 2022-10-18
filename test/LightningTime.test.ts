@@ -150,7 +150,13 @@ describe('get colors', () => {
       new LightningTime({
         staticBoltColors: [120, 300]
       })
-    }).toThrow('Color values must be between 0 and 255 (RGB).')
+    }).toThrow('Color values must be integer values between 0 and 255 (RGB).')
+
+    expect(() => {
+      new LightningTime({
+        staticBoltColors: [120.5, 130.5]
+      })
+    }).toThrow('Color values must be integer values between 0 and 255 (RGB).')
   })
   it('should throw an error when time format is incorrect', () => {
     expect(() => lightningTime.getColors('8~0|')).toThrow(
