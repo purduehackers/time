@@ -23,7 +23,6 @@ export interface TraditionalTimeString {
   withSeconds: string
   withoutSeconds: string
   date: Date
-  lightningString?: string
 }
 
 export interface Colors {
