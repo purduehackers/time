@@ -1,4 +1,4 @@
-# Lightning Time
+# Lightning Time ⚡️
 
 Lightning Time ⚡️ is a new way to measure time. It's a spin on hexadecimal time: the day is split into 16 parts over and over.
 
