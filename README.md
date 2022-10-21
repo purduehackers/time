@@ -1,18 +1,22 @@
 # Lightning Time
 
-Lightning Time ⚡️ is a new way to measure time. At its core, it's just hexadecimal time—you split a day into 16 parts, then 16 more, then 16 more. The largest unit of Lightning Time is called a `bolt`; the smaller units (in order) are called `zaps`, `sparks`, and `charges`.
+Lightning Time ⚡️ is a new way to measure time. It's a spin on hexadecimal time: the day is split into 16 parts over and over.
 
-A typical Lightning Time string looks like this: `8~0~0` (12:00 pm), where 8 is the bolt, the first 0 is the zap, and the second 0 is the spark. Charges and smaller units are delimited by one pipe; for example, 12:00pm and 13 seconds is represented as `8~0~0|a`. Further units are not delimeted by anything (example: `8~0~0|af`).
+The first and largest unit is called a `bolt`; the others are called `zaps`, `sparks`, and `charges`.
 
-Each of the three major units of Lightning Time are also their own colors. The hexadecimal string is padded with a 0 (example: `8~0~0` is secretly `80~00~00`), and the empty space within each unit is filled in by the remaining parts of a color. This package provides the set of colors that Purdue Hackers uses by default, but you can customize it with whatever colors you want.
+A typical Lightning Time string looks like 8~0~0|e, or 8~0~0 without charges.
 
-The magic of Lightning Time: represent time with not just any 3 colors, but your favorite 3 colors! 🌈
+The three major units—bolts, zaps, and sparks—are each delimited by a tilde ~. Smaller units are delimited by a single pipe |. The charge is the only named unit after the pipe, but you can go down as far as you want. For example, 8~0~0|ef4 is a valid Lightning Time string.
+
+The super fun part: **Lightning Time represents time as three colors**. The respective red, green, and blue values of each color are filled in by the four time units; the rest of the values are filled in by whatever you want! The magic of Lightning Time: represent time with not just any 3 colors, but your favorite 3 colors! 🌈
+
+Learn more about how Lightning Time works & play with it hands-on: https://blog.purduehackers.com/posts/lightning-time
 
 ---
 
-This is a highly experimental package and is not currently recommended for production use. Massive breaking changes will be made in the coming days and weeks.
+This is an npm package that allows you to use Lightning Time in your own projects.
 
-# How to use this library
+# Usage
 
 ```javascript
 import { LightningTime } from '@purduehackers/time'
