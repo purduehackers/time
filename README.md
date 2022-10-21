@@ -4,11 +4,13 @@ Lightning Time ⚡️ is a new way to measure time. It's a spin on hexadecimal t
 
 The first and largest unit is called a `bolt`; the others are called `zaps`, `sparks`, and `charges`.
 
-A typical Lightning Time string looks like 8~0~0|e, or 8~0~0 without charges.
+A typical Lightning Time string looks like `8~0~0|e`, or `8~0~0` without charges.
 
-The three major units—bolts, zaps, and sparks—are each delimited by a tilde ~. Smaller units are delimited by a single pipe |. The charge is the only named unit after the pipe, but you can go down as far as you want. For example, 8~0~0|ef4 is a valid Lightning Time string.
+The three major units—bolts, zaps, and sparks—are each delimited by a tilde `~`. Smaller units are delimited by a single pipe `|`. The charge is the only named unit after the pipe, but you can go down as far as you want. For example, `8~0~0|ef4` is a valid Lightning Time string.
 
-The super fun part: **Lightning Time represents time as three colors**. The respective red, green, and blue values of each color are filled in by the four time units; the rest of the values are filled in by whatever you want! The magic of Lightning Time: represent time with not just any 3 colors, but your favorite 3 colors! 🌈
+The super fun part: **Lightning Time represents time as three colors**. The respective red, green, and blue values of each color are filled in by the four time units; the rest of the values are filled in by whatever you want!
+
+The magic of Lightning Time: represent time with not just any 3 colors, but your favorite 3 colors! 🌈
 
 Learn more about how Lightning Time works & play with it hands-on: https://blog.purduehackers.com/posts/lightning-time
 
