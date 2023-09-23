@@ -43,6 +43,9 @@
     "url": "https://github.com/purduehackers/time/issues"
   },
   "dependencies": {
+    "@types/react": "^18.2.22",
+    "date-fns": "^2.30.0",
+    "react": "^18.2.0",
     "rgb-hex": "3.0.0"
   },
   "devDependencies": {
