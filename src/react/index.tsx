@@ -7,35 +7,32 @@ export function useLightningTimeClock() {
   const [normalTimeClock, setNormalTime] = useState('')
 
   useEffect(() => {
-    const update = () => {
-      const now = new Date()
-
-      const lt = new LightningTime()
-      const convertedTime = lt.convertToLightning(now).lightningString
-      setLightningTime(convertedTime)
-
-      const formattedTime = formatTime(now, 'h:mm a')
-      setNormalTime(formattedTime)
-    }
-
-    update()
-
     const now = new Date()
     const millis =
       1000 * 60 * 60 * now.getHours() +
       1000 * 60 * now.getMinutes() +
       1000 * now.getSeconds() +
       now.getMilliseconds()
+
     const remainingMillis = MILLIS_PER_CHARGE - (millis % MILLIS_PER_CHARGE)
+    let nextExpectedUpdateTime = Date.now() + remainingMillis
 
-    const timer = setTimeout(() => {
-      update()
+    const update = () => {
+      nextExpectedUpdateTime += MILLIS_PER_CHARGE
 
-      const interval = setInterval(update, MILLIS_PER_CHARGE)
+      const now = new Date()
+      const lt = new LightningTime()
+      const convertedTime = lt.convertToLightning(now).lightningString
+      setLightningTime(convertedTime)
 
-      return () => clearInterval(interval)
-    }, remainingMillis)
-    return () => clearTimeout(timer)
+      const formattedTime = formatTime(now, 'h:mm a')
+      setNormalTime(formattedTime)
+
+      const drift = Date.now() - nextExpectedUpdateTime
+      setTimeout(update, MILLIS_PER_CHARGE - drift)
+    }
+
+    setTimeout(update, remainingMillis)
   }, [])
 
   return { lightningTimeClock, normalTimeClock }
