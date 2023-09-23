@@ -3,8 +3,8 @@ import { format as formatTime } from 'date-fns'
 import { LightningTime, MILLIS_PER_CHARGE } from '../time'
 
 export function useLightningTimeClock() {
-  const [lightningTime, setLightningTime] = useState('')
-  const [normalTime, setNormalTime] = useState('')
+  const [lightningTimeClock, setLightningTime] = useState('')
+  const [normalTimeClock, setNormalTime] = useState('')
 
   useEffect(() => {
     const update = () => {
@@ -38,5 +38,5 @@ export function useLightningTimeClock() {
     return () => clearTimeout(timer)
   }, [])
 
-  return { lightningTime, normalTime }
+  return { lightningTimeClock, normalTimeClock }
 }
