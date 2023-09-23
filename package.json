@@ -1,13 +1,14 @@
 {
   "name": "@purduehackers/time",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "convert between traditional time and lightning time ⚡️",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "tsup": {
     "entry": [
-      "src/index.ts"
+      "src/index.ts",
+      "src/react/index.tsx"
     ],
     "splitting": false,
     "sourcemap": true,
@@ -24,6 +25,18 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "date-fns": ">=2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "date-fns": {
+      "optional": true
+    }
   },
   "files": [
     "dist"
