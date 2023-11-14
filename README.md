@@ -177,3 +177,18 @@ returns {
 }
 */
 ```
+
+## Lightning Time Clock React Hook
+
+This package includes a React Hook for implementing a Lightning Time clock in your React app:
+
+```javascript
+import { useLightningTimeClock } from '@purduehackers/time/react'
+
+export default function MyComponent() {
+  const { lightningTimeClock, normalTimeClock, timeColors } =
+    useLightningTimeClock()
+
+  return <p>{lightningTimeClock}</p>
+}
+```
