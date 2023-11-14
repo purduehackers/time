@@ -1,39 +1,39 @@
 import { useState, useEffect } from 'react'
 import { format as formatTime } from 'date-fns'
 import { LightningTime, MILLIS_PER_CHARGE } from '../time'
+import { Colors } from '../types'
 
 export function useLightningTimeClock() {
-  const [lightningTimeClock, setLightningTime] = useState('')
-  const [normalTimeClock, setNormalTime] = useState('')
+  const [lightningTimeClock, setLightningTime] = useState<string>('')
+  const [normalTimeClock, setNormalTime] = useState<string>('')
+  const [timeColors, setTimeColors] = useState<Colors>({
+    boltColor: '#000000',
+    zapColor: '#000000',
+    sparkColor: '#000000'
+  })
 
   useEffect(() => {
-    const now = new Date()
-    const millis =
-      1000 * 60 * 60 * now.getHours() +
-      1000 * 60 * now.getMinutes() +
-      1000 * now.getSeconds() +
-      now.getMilliseconds()
-
-    const remainingMillis = MILLIS_PER_CHARGE - (millis % MILLIS_PER_CHARGE)
-    let nextExpectedUpdateTime = Date.now() + remainingMillis
-
     const update = () => {
-      nextExpectedUpdateTime += MILLIS_PER_CHARGE
-
       const now = new Date()
+      const millis =
+        1000 * 60 * 60 * now.getHours() +
+        1000 * 60 * now.getMinutes() +
+        1000 * now.getSeconds() +
+        now.getMilliseconds()
+      let remainingMillis = MILLIS_PER_CHARGE - (millis % MILLIS_PER_CHARGE)
+
       const lt = new LightningTime()
       const convertedTime = lt.convertToLightning(now).lightningString
+      const colors = lt.getColors(convertedTime)
       setLightningTime(convertedTime)
+      setTimeColors(colors)
 
       const formattedTime = formatTime(now, 'h:mm a')
       setNormalTime(formattedTime)
-
-      const drift = Date.now() - nextExpectedUpdateTime
-      setTimeout(update, MILLIS_PER_CHARGE - drift)
+      setTimeout(update, remainingMillis)
     }
-
-    setTimeout(update, remainingMillis)
+    update()
   }, [])
 
-  return { lightningTimeClock, normalTimeClock }
+  return { lightningTimeClock, timeColors, normalTimeClock }
 }
