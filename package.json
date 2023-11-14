@@ -1,29 +1,41 @@
 {
   "name": "@purduehackers/time",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "convert between traditional time and lightning time ⚡️",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
-  "tsup": {
-    "entry": [
-      "src/index.ts"
-    ],
-    "splitting": false,
-    "sourcemap": true,
-    "clean": true
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/esm/react/index.js",
+      "require": "./dist/react/index.js"
+    }
   },
   "scripts": {
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
-    "build": "tsup --format esm,cjs --legacy-output --dts",
+    "build": "bunchee",
     "package": "npm run build && npm pack",
     "test": "jest --no-cache --runInBand",
     "test:cov": "jest --coverage --no-cache --runInBand"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
   },
   "files": [
     "dist"
@@ -43,12 +55,16 @@
     "url": "https://github.com/purduehackers/time/issues"
   },
   "dependencies": {
+    "@types/react": "^18.2.22",
+    "date-fns": "^2.30.0",
+    "react": "^18.2.0",
     "rgb-hex": "3.0.0"
   },
   "devDependencies": {
     "@types/jest": "^29.1.2",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
+    "bunchee": "^3.8.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -57,7 +73,6 @@
     "pinst": "^2.1.6",
     "prettier": "^2.4.0",
     "ts-jest": "^27.0.5",
-    "tsup": "^6.2.3",
     "typescript": "^4.4.3"
   }
 }

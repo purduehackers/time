@@ -12,6 +12,8 @@ import {
   TraditionalTimeString
 } from './types'
 
+export const MILLIS_PER_CHARGE = 1318.359375 // 86400000 / 16^4
+
 export class LightningTime {
   staticColors: StaticColors
 
@@ -45,14 +47,12 @@ export class LightningTime {
   }
 
   convertToLightning(time: Date): LightningString {
-    const millisPerCharge = 1318.359375 // 86400000 / 16^4
-
     const millis =
       1000 * 60 * 60 * time.getHours() +
       1000 * 60 * time.getMinutes() +
       1000 * time.getSeconds() +
       time.getMilliseconds()
-    const totalCharges = millis / millisPerCharge
+    const totalCharges = millis / MILLIS_PER_CHARGE
     const totalSparks = totalCharges / 16
     const totalZaps = totalSparks / 16
     const totalBolts = totalZaps / 16
