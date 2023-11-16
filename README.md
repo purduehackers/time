@@ -192,16 +192,3 @@ export default function MyComponent() {
   return <p>{lightningTimeClock}</p>
 }
 ```
-
-If you're using TypeScript, the `react` sub-package requires you to use `"moduleResolution": "Bundler"` in your tsconfig:
-
-```json
-// tsconfig.json
-{
-  "compilerOptions": {
-    ...
-      "module": "ES2020",
-      "moduleResolution": "Bundler",
-  }
-}
-```

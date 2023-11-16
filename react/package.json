@@ -1,0 +1,8 @@
+{
+  "name": "@purduehackers/time/react",
+  "type": "module",
+  "main": "../dist/react.js",
+  "module": "../dist/esm/react.js",
+  "types": "../dist/react.d.ts",
+  "sideEffects": false
+}
