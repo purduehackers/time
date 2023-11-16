@@ -2,7 +2,8 @@
   "compilerOptions": {
     "target": "ES2016",
     "strict": true,
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "declaration": true,
     "outDir": "dist",
