@@ -12,9 +12,9 @@
       "require": "./dist/index.js"
     },
     "./react": {
-      "types": "./dist/react/index.d.ts",
-      "import": "./dist/esm/react/index.js",
-      "require": "./dist/react/index.js"
+      "types": "./dist/react.d.ts",
+      "import": "./dist/esm/react.js",
+      "require": "./dist/react.js"
     }
   },
   "scripts": {
