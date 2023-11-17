@@ -1,16 +1,35 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import { format as formatTime } from 'date-fns'
 import { LightningTime, MILLIS_PER_CHARGE } from '../time'
 import { Colors } from '../types'
 
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect
+
 export function useLightningTimeClock() {
-  const [lightningTimeClock, setLightningTime] = useState<string>('0~0~0')
-  const [normalTimeClock, setNormalTime] = useState<string>('12:00 AM')
+  const [lightningTimeClock, setLightningTime] = useState<string>('')
+  const [normalTimeClock, setNormalTime] = useState<string>('')
   const [timeColors, setTimeColors] = useState<Colors>({
-    boltColor: '#ffffff',
-    zapColor: '#ffffff',
-    sparkColor: '#ffffff'
+    boltColor: '',
+    zapColor: '',
+    sparkColor: ''
   })
+  const isFirstRender = useRef(true)
+
+  useIsomorphicLayoutEffect(() => {
+    if (isFirstRender.current) {
+      const now = new Date()
+      const { lightningString, colors } =
+        new LightningTime().convertToLightning(now)
+      const formattedTime = formatTime(now, 'h:mm a')
+
+      setLightningTime(lightningString)
+      setNormalTime(formattedTime)
+      setTimeColors(colors)
+
+      isFirstRender.current = false
+    }
+  }, [])
 
   useEffect(() => {
     const update = () => {
@@ -24,12 +43,13 @@ export function useLightningTimeClock() {
 
       const lt = new LightningTime()
       const convertedTime = lt.convertToLightning(now).lightningString
+      const formattedTime = formatTime(now, 'h:mm a')
       const colors = lt.getColors(convertedTime)
+
       setLightningTime(convertedTime)
       setTimeColors(colors)
-
-      const formattedTime = formatTime(now, 'h:mm a')
       setNormalTime(formattedTime)
+
       setTimeout(update, remainingMillis)
     }
     update()
