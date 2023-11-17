@@ -7,9 +7,9 @@ export function useLightningTimeClock() {
   const [lightningTimeClock, setLightningTime] = useState<string>('0~0~0')
   const [normalTimeClock, setNormalTime] = useState<string>('12:00 AM')
   const [timeColors, setTimeColors] = useState<Colors>({
-    boltColor: '#00000000',
-    zapColor: '#00000000',
-    sparkColor: '#00000000'
+    boltColor: '#ffffff',
+    zapColor: '#ffffff',
+    sparkColor: '#ffffff'
   })
 
   useEffect(() => {
