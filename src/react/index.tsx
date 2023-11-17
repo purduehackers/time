@@ -4,12 +4,12 @@ import { LightningTime, MILLIS_PER_CHARGE } from '../time'
 import { Colors } from '../types'
 
 export function useLightningTimeClock() {
-  const [lightningTimeClock, setLightningTime] = useState<string>('')
-  const [normalTimeClock, setNormalTime] = useState<string>('')
+  const [lightningTimeClock, setLightningTime] = useState<string>('0~0~0')
+  const [normalTimeClock, setNormalTime] = useState<string>('12:00 AM')
   const [timeColors, setTimeColors] = useState<Colors>({
-    boltColor: '#000000',
-    zapColor: '#000000',
-    sparkColor: '#000000'
+    boltColor: '#00000000',
+    zapColor: '#00000000',
+    sparkColor: '#00000000'
   })
 
   useEffect(() => {
