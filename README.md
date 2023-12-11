@@ -91,6 +91,12 @@ returns {
     boltColor: '#01a100',
     zapColor: '#3213d6',
     sparkColor: '#f6853e'
+  },
+  parts: {
+    bolt: 0,
+    zap: 1,
+    spark: 3,
+    charge: e
   }
 }
 */
