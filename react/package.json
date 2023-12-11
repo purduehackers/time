@@ -4,10 +4,5 @@
   "main": "../dist/react.js",
   "module": "../dist/esm/react.js",
   "types": "../dist/react.d.ts",
-  "sideEffects": false,
-  "dependencies": {
-    "@types/react": "^18.2.43",
-    "date-fns": "^2.30.0",
-    "react": "^18.2.0"
-  }
+  "sideEffects": false
 }
