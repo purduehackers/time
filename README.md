@@ -93,10 +93,10 @@ returns {
     sparkColor: '#f6853e'
   },
   parts: {
-    bolt: 0,
-    zap: 1,
-    spark: 3,
-    charge: e
+    bolts: 0,
+    zaps: 1,
+    sparks: 3,
+    charges: e
   }
 }
 */
