@@ -36,3 +36,7 @@ export interface StaticColors {
   zapColors: number[]
   sparkColors: number[]
 }
+
+export type LightningTimeClock = LightningString & {
+  formattedNormalTime: string
+}
