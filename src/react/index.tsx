@@ -43,5 +43,5 @@ export function useLightningTimeClock() {
     update()
   }, [])
 
-  return { lightningTimeClock }
+  return lightningTimeClock
 }
