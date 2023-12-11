@@ -1,0 +1,8 @@
+{
+  "name": "@purduehackers/time/preact",
+  "type": "module",
+  "main": "../dist/preact.js",
+  "module": "../dist/esm/preact.js",
+  "types": "../dist/preact.d.ts",
+  "sideEffects": false
+}

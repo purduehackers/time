@@ -35,3 +35,11 @@ export interface StaticColors {
   zapColors: number[]
   sparkColors: number[]
 }
+
+export type GenericUseState = <T>(
+  initialState: T | (() => T)
+) => [T, (newState: T | ((prevState: T) => T)) => void]
+export type GenericUseEffect = (
+  effect: () => void | (() => void | undefined),
+  deps?: ReadonlyArray<any>
+) => void

@@ -15,6 +15,11 @@
       "types": "./dist/react.d.ts",
       "import": "./dist/esm/react.js",
       "require": "./dist/react.js"
+    },
+    "./preact": {
+      "types": "./dist/preact.d.ts",
+      "import": "./dist/esm/preact.js",
+      "require": "./dist/preact.js"
     }
   },
   "scripts": {
@@ -31,16 +36,21 @@
     "access": "public"
   },
   "peerDependencies": {
-    "react": ">=17.0.0"
+    "react": ">=17.0.0",
+    "preact": ">=10.19.3"
   },
   "peerDependenciesMeta": {
     "react": {
+      "optional": true
+    },
+    "preact": {
       "optional": true
     }
   },
   "files": [
     "dist",
-    "react"
+    "react",
+    "preact"
   ],
   "keywords": [
     "lightning",

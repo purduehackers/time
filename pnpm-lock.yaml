@@ -11,6 +11,9 @@ dependencies:
   date-fns:
     specifier: ^2.30.0
     version: 2.30.0
+  preact:
+    specifier: '>=10.19.3'
+    version: 10.19.3
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -3466,6 +3469,10 @@ packages:
     dependencies:
       find-up: 4.1.0
     dev: true
+
+  /preact@10.19.3:
+    resolution: {integrity: sha512-nHHTeFVBTHRGxJXKkKu5hT8C/YWBkPso4/Gad6xuj5dbptt9iF9NZr9pHbPhBrnT2klheu7mHTxTZ/LjwJiEiQ==}
+    dev: false
 
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
