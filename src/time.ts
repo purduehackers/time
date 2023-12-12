@@ -100,7 +100,7 @@ export class LightningTime {
     }
     const millis = (elapsed * 86400000) / (charges > 0 ? 65536 : 4096)
 
-    return msToTime(millis)
+    return msToTime(millis).date
   }
 
   getColors(lightningString: string): Colors {
