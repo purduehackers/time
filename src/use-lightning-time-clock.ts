@@ -1,18 +1,15 @@
 import { format as formatTime } from 'date-fns'
 import { LightningTime, MILLIS_PER_CHARGE } from './time'
-import type { Colors, GenericUseEffect, GenericUseState } from './types'
+import type { LightningTimeClock, GenericUseEffect, GenericUseState } from './types'
 
-function calculateInitialData() {
+function calculateInitialTime(): LightningTimeClock {
   const now = new Date()
-  const { lightningString, colors } = new LightningTime().convertToLightning(
-    now
-  )
+  const lightningTime = new LightningTime().convertToLightning(now)
   const formattedNormalTime = formatTime(now, 'h:mm a')
 
   return {
-    lightningString,
-    formattedNormalTime,
-    colors
+    ...lightningTime,
+    formattedNormalTime
   }
 }
 
@@ -23,12 +20,9 @@ export function useLightningTimeClockCore({
   useState: GenericUseState
   useEffect: GenericUseEffect
 }) {
-  const { lightningString, formattedNormalTime, colors } =
-    calculateInitialData()
-  const [lightningTimeClock, setLightningTime] =
-    useState<string>(lightningString)
-  const [normalTimeClock, setNormalTime] = useState<string>(formattedNormalTime)
-  const [timeColors, setTimeColors] = useState<Colors>(colors)
+  const initialTime = calculateInitialTime()
+  const [lightningTimeClock, setLightningTimeClock] =
+    useState<LightningTimeClock>(initialTime)
 
   useEffect(() => {
     const update = () => {
@@ -41,18 +35,18 @@ export function useLightningTimeClockCore({
       let remainingMillis = MILLIS_PER_CHARGE - (millis % MILLIS_PER_CHARGE)
 
       const lt = new LightningTime()
-      const convertedTime = lt.convertToLightning(now).lightningString
-      const formattedTime = formatTime(now, 'h:mm a')
-      const colors = lt.getColors(convertedTime)
+      const convertedTime = lt.convertToLightning(now)
+      const formattedNormalTime = formatTime(now, 'h:mm a')
 
-      setLightningTime(convertedTime)
-      setTimeColors(colors)
-      setNormalTime(formattedTime)
+      setLightningTimeClock({
+        ...convertedTime,
+        formattedNormalTime
+      })
 
       setTimeout(update, remainingMillis)
     }
     update()
   }, [])
 
-  return { lightningTimeClock, timeColors, normalTimeClock }
+  return lightningTimeClock
 }

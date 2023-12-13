@@ -31,6 +31,9 @@ export interface StaticColors {
   sparkColors: number[]
 }
 
+export type LightningTimeClock = LightningString & {
+  formattedNormalTime: string
+}
 export type GenericUseState = <T>(
   initialState: T | (() => T)
 ) => [T, (newState: T | ((prevState: T) => T)) => void]
