@@ -63,7 +63,6 @@
     "rgb-hex": "3.0.0"
   },
   "devDependencies": {
-    "@testing-library/preact": "^3.2.3",
     "@testing-library/react": "^14.1.2",
     "@types/jest": "^29.5.11",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
