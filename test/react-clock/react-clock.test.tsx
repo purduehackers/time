@@ -2,52 +2,31 @@
  * @jest-environment jsdom
  */
 
-import {render, screen} from '@testing-library/react'
-import { Clock } from './clock-test-component'
-import React from 'react'
+import { renderHook } from '@testing-library/react'
 import { LightningTime } from '../../src'
 import { format } from 'date-fns'
+import { useLightningTimeClock } from '../../src/react'
 
-function getDesiredValues() {
+describe('react clock', () => {
+  const { result } = renderHook(() => useLightningTimeClock())
   const now = new Date()
   const lt = new LightningTime()
   const { lightningString, colors } = lt.convertToLightning(now)
   const formattedNowString = format(now, 'h:mm a')
 
-  return {
-    lightningString,
-    formattedNowString,
-    colors
-  }
-}
-
-describe('react clock', () => {
-  it('renders a react clock', () => {
-    render(<Clock />)
-    expect(screen.getByTestId('lightning string')).toBeDefined()
-    expect(screen.getByTestId('formatted normal time')).toBeDefined()
-    expect(screen.getByTestId('bolt color')).toBeDefined()
-    expect(screen.getByTestId('zap color')).toBeDefined()
-    expect(screen.getByTestId('spark color')).toBeDefined()
+  it('renders the hook', () => {
+    expect(result.current).toBeDefined()
   })
   it('renders the correct lightning time string', () => {
-    render(<Clock />)
-    const { lightningString } = getDesiredValues()
-
-    expect(screen.getByTestId('lightning string').innerHTML).toEqual(lightningString)
+    expect(result.current.lightningString).toEqual(lightningString)
   })
   it('renders the correct formatted normal time', () => {
-    render(<Clock />)
-    const { formattedNowString } = getDesiredValues()
-
-    expect(screen.getByTestId('formatted normal time').innerHTML).toEqual(formattedNowString)
+    expect(result.current.formattedNormalTime).toEqual(formattedNowString)
   })
   it('renders the correct colors', () => {
-    render(<Clock />)
-    const { colors } = getDesiredValues()
-
-    expect(screen.getByTestId('bolt color').innerHTML).toEqual(colors.boltColor)
-    expect(screen.getByTestId('zap color').innerHTML).toEqual(colors.zapColor)
-    expect(screen.getByTestId('spark color').innerHTML).toEqual(colors.sparkColor)
+    const { boltColor, zapColor, sparkColor } = result.current.colors
+    expect(boltColor).toEqual(colors.boltColor)
+    expect(zapColor).toEqual(colors.zapColor)
+    expect(sparkColor).toEqual(colors.sparkColor)
   })
 })
