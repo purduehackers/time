@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'preact/hooks'
 import { useLightningTimeClockCore } from '../use-lightning-time-clock'
 
 export function useLightningTimeClock() {

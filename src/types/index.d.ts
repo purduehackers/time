@@ -20,12 +20,6 @@ export interface LightningTimeParts {
   charges: string
 }
 
-export interface TraditionalTimeString {
-  withSeconds: string
-  withoutSeconds: string
-  date: Date
-}
-
 export interface Colors {
   boltColor: string
   zapColor: string
@@ -40,3 +34,10 @@ export interface StaticColors {
 export type LightningTimeClock = LightningString & {
   formattedNormalTime: string
 }
+export type GenericUseState = <T>(
+  initialState: T | (() => T)
+) => [T, (newState: T | ((prevState: T) => T)) => void]
+export type GenericUseEffect = (
+  effect: () => void | (() => void | undefined),
+  deps?: ReadonlyArray<any>
+) => void
