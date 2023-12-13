@@ -53,6 +53,7 @@ describe('strip charges', () => {
     time.setHours(12)
     time.setMinutes(1)
     time.setSeconds(9)
+    time.setMilliseconds(0)
     const lt = new LightningTime()
     const convert = lt.convertToLightning(time)
     expect(convert.lightningString).toEqual('8~0~3|4')
