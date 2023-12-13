@@ -186,9 +186,9 @@ This package includes a React Hook for implementing a Lightning Time clock in yo
 import { useLightningTimeClock } from '@purduehackers/time/react'
 
 export default function MyComponent() {
-  const { lightningTimeClock, normalTimeClock, timeColors } =
-    useLightningTimeClock()
+  const { lightningString, formattedNormalTime } =
+    useLightningTimeClock() // Surfaces the entire Lightning Time object and an additional formattedNormalTime
 
-  return <p>{lightningTimeClock}</p>
+  return <p>{lightningString} ({formattedNormalTime})</p>
 }
 ```
