@@ -8,8 +8,7 @@ import {
   Colors,
   LightningString,
   LightningTimeParts,
-  StaticColors,
-  TraditionalTimeString
+  StaticColors
 } from './types'
 
 export const MILLIS_PER_CHARGE = 1318.359375 // 86400000 / 16^4
@@ -57,23 +56,22 @@ export class LightningTime {
     const totalZaps = totalSparks / 16
     const totalBolts = totalZaps / 16
 
-    const charges = Math.floor(totalCharges) % 16
-    const sparks = Math.floor(totalSparks) % 16
-    const zaps = Math.floor(totalZaps) % 16
-    const bolts = Math.floor(totalBolts) % 16
+    const charges = (Math.floor(totalCharges) % 16).toString(16)
+    const sparks = (Math.floor(totalSparks) % 16).toString(16)
+    const zaps = (Math.floor(totalZaps) % 16).toString(16)
+    const bolts = (Math.floor(totalBolts) % 16).toString(16)
 
-    const lightningString =
-      bolts.toString(16) +
-      '~' +
-      zaps.toString(16) +
-      '~' +
-      sparks.toString(16) +
-      '|' +
-      charges.toString(16)
+    const lightningString = bolts + '~' + zaps + '~' + sparks + '|' + charges
     return {
       lightningString,
       strippedCharges: stripCharges(lightningString),
-      colors: this.getColors(lightningString)
+      colors: this.getColors(lightningString),
+      parts: {
+        bolts,
+        zaps,
+        sparks,
+        charges
+      }
     }
   }
 
@@ -85,7 +83,7 @@ export class LightningTime {
     return stripCharges(lightningString)
   }
 
-  convertFromLightning(lightningString: string): TraditionalTimeString {
+  convertFromLightning(lightningString: string): Date {
     const isValid = validate(lightningString)
     if (!isValid) {
       throw new Error(

@@ -2,6 +2,7 @@ export interface LightningString {
   lightningString: string
   strippedCharges: string
   colors: Colors
+  parts: LightningTimeParts
 }
 
 export interface LightningTimeObject {
@@ -17,12 +18,6 @@ export interface LightningTimeParts {
   zaps: string
   sparks: string
   charges: string
-}
-
-export interface TraditionalTimeString {
-  withSeconds: string
-  withoutSeconds: string
-  date: Date
 }
 
 export interface Colors {

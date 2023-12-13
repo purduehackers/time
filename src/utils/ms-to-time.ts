@@ -1,6 +1,4 @@
-import { TraditionalTimeString } from '../types'
-
-const msToTime = (millis: number): TraditionalTimeString => {
+const msToTime = (millis: number): Date => {
   const ms = millis % 1000
   millis = (millis - ms) / 1000
   const secs = millis % 60
@@ -12,15 +10,9 @@ const msToTime = (millis: number): TraditionalTimeString => {
   date.setHours(hrs)
   date.setMinutes(mins)
   date.setSeconds(secs)
+  date.setMilliseconds(ms)
 
-  return {
-    withSeconds: date.toLocaleTimeString(),
-    withoutSeconds: date.toLocaleTimeString([], {
-      hour: 'numeric',
-      minute: '2-digit'
-    }),
-    date
-  }
+  return date
 }
 
 export default msToTime
