@@ -1,11 +1,11 @@
-export interface LightningString {
+export interface LightningTimeObject {
   lightningString: string
   strippedCharges: string
   colors: Colors
   parts: LightningTimeParts
 }
 
-export interface LightningTimeObject {
+export interface LightningTimeRawParts {
   bolts: number
   zaps: number
   sparks: number
@@ -31,7 +31,7 @@ export interface StaticColors {
   sparkColors: number[]
 }
 
-export type LightningTimeClock = LightningString & {
+export type LightningTimeClock = LightningTimeObject & {
   formattedNormalTime: string
 }
 export type GenericUseState = <T>(

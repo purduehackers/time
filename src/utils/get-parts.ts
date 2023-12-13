@@ -1,6 +1,6 @@
-import { LightningTimeObject, LightningTimeParts } from '../types'
+import { LightningTimeRawParts, LightningTimeParts } from '../types'
 
-const getParts = (lightningString: string): LightningTimeObject => {
+const getParts = (lightningString: string): LightningTimeRawParts => {
   const lightningParts = lightningString.split('~')
   const bolts = parseInt(lightningParts[0], 16)
   const zaps = parseInt(lightningParts[1], 16)
@@ -27,7 +27,7 @@ const getParts = (lightningString: string): LightningTimeObject => {
   }
 }
 
-const toString = (parts: LightningTimeObject): LightningTimeParts => {
+const toString = (parts: LightningTimeRawParts): LightningTimeParts => {
   const bolts = parts.bolts.toString(16)
   const zaps = parts.zaps.toString(16)
   const sparks = parts.sparks.toString(16)

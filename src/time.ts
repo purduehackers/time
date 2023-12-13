@@ -6,7 +6,7 @@ import validateCustomColors from './utils/validate-custom-colors'
 import stripCharges from './utils/strip-charges'
 import {
   Colors,
-  LightningString,
+  LightningTimeObject,
   LightningTimeParts,
   StaticColors
 } from './types'
@@ -45,7 +45,7 @@ export class LightningTime {
     this.staticColors = { boltColors, zapColors, sparkColors }
   }
 
-  convertToLightning(time: Date): LightningString {
+  convertToLightning(time: Date): LightningTimeObject {
     const millis =
       1000 * 60 * 60 * time.getHours() +
       1000 * 60 * time.getMinutes() +
