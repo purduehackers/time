@@ -1,6 +1,6 @@
 {
   "name": "@purduehackers/time",
-  "version": "0.6.14",
+  "version": "0.6.13",
   "description": "convert between traditional time and lightning time ⚡️",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -16,6 +16,11 @@
       "types": "./dist/react.d.ts",
       "import": "./dist/esm/react.js",
       "require": "./dist/react.js"
+    },
+    "./preact": {
+      "types": "./dist/preact.d.ts",
+      "import": "./dist/esm/preact.js",
+      "require": "./dist/preact.js"
     }
   },
   "scripts": {
@@ -33,7 +38,8 @@
   },
   "files": [
     "dist",
-    "react"
+    "react",
+    "preact"
   ],
   "keywords": [
     "lightning",
@@ -52,6 +58,7 @@
   "dependencies": {
     "@types/react": "^18.2.22",
     "date-fns": "^2.30.0",
+    "preact": "^10.19.3",
     "react": "^18.2.0",
     "rgb-hex": "3.0.0"
   },
@@ -71,12 +78,16 @@
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "react": ">=17.0.0",
     "@types/react": ">=17.0.0",
-    "date-fns": ">=2.0.0"
+    "date-fns": ">=2.0.0",
+    "react": ">=17.0.0",
+    "preact": ">=10.0.0"
   },
   "peerDependenciesMeta": {
     "react": {
+      "optional": true
+    },
+    "preact": {
       "optional": true
     },
     "@types/react": {
