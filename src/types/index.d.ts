@@ -20,12 +20,6 @@ export interface LightningTimeParts {
   charges: string
 }
 
-export interface TraditionalTimeString {
-  withSeconds: string
-  withoutSeconds: string
-  date: Date
-}
-
 export interface Colors {
   boltColor: string
   zapColor: string

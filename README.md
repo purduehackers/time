@@ -139,10 +139,7 @@ Examples:
 lt.convertFromLightning('8~0~0')
 
 /*
-returns {
-  withSeconds: '12:00:00 PM',
-  withoutSeconds: '12:00 PM'
-}
+returns a Date object with time 12:00:00 PM
 */
 ```
 
@@ -150,10 +147,7 @@ returns {
 lt.convertFromLightning('8~1~a|e')
 
 /*
-returns {
-  withSeconds: '12:09:26 PM',
-  withoutSeconds: '12:09 PM'
-}
+returns a Date object with time 12:09:26 PM
 */
 ```
 
