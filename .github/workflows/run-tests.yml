@@ -3,7 +3,7 @@ on:
   - push
   - pull_request
 jobs:
-  install:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,5 +13,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
-      - run: pnpm ci
+      - run: pnpm i
       - run: pnpm test
