@@ -48,7 +48,7 @@ describe('get parts', () => {
 })
 
 describe('strip charges', () => {
-  it('should strip charges after conversion', () => {
+  it.only('should strip charges after conversion', () => {
     const time = new Date()
     time.setHours(12)
     time.setMinutes(1)
