@@ -70,17 +70,25 @@ describe('from lightning', () => {
   const lightningTime = new LightningTime()
   it('should convert from lightning', () => {
     const convert = lightningTime.convertFromLightning('8~0~0')
-    expect(convert).toMatchObject({
-      withSeconds: '12:00:00 PM',
-      withoutSeconds: '12:00 PM'
-    })
+
+    const expectedDate = new Date()
+    expectedDate.setHours(12)
+    expectedDate.setMinutes(0)
+    expectedDate.setSeconds(0)
+    expectedDate.setMilliseconds(0)
+
+    expect(convert.getTime()).toEqual(expectedDate.getTime())
   })
   it('should convert from lightning with charges', () => {
     const convert = lightningTime.convertFromLightning('8~0~0|a')
-    expect(convert).toMatchObject({
-      withSeconds: '12:00:13 PM',
-      withoutSeconds: '12:00 PM'
-    })
+    const expectedDate = new Date()
+
+    expectedDate.setHours(12)
+    expectedDate.setMinutes(0)
+    expectedDate.setSeconds(13)
+    expectedDate.setMilliseconds(183)
+
+    expect(convert.getTime()).toEqual(expectedDate.getTime())
   })
   it('should throw an error when time format is incorrect', () => {
     expect(() => lightningTime.convertFromLightning('8~0|')).toThrow(

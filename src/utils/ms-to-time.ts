@@ -10,6 +10,7 @@ const msToTime = (millis: number): Date => {
   date.setHours(hrs)
   date.setMinutes(mins)
   date.setSeconds(secs)
+  date.setMilliseconds(ms)
 
   return date
 }
