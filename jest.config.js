@@ -12,4 +12,7 @@ module.exports = {
       './config/fileTransformer.js',
   },
   transformIgnorePatterns: ['./node_modules/(?!rgb-hex)'],
+  moduleNameMapper: {
+    '^@testing-library/preact$': '<rootDir>/node_modules/@testing-library/preact/dist/cjs/index.js',
+  }
 }
