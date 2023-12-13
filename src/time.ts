@@ -8,8 +8,7 @@ import {
   Colors,
   LightningString,
   LightningTimeParts,
-  StaticColors,
-  TraditionalTimeString
+  StaticColors
 } from './types'
 
 export const MILLIS_PER_CHARGE = 1318.359375 // 86400000 / 16^4
@@ -84,7 +83,7 @@ export class LightningTime {
     return stripCharges(lightningString)
   }
 
-  convertFromLightning(lightningString: string): TraditionalTimeString {
+  convertFromLightning(lightningString: string): Date {
     const isValid = validate(lightningString)
     if (!isValid) {
       throw new Error(
@@ -100,7 +99,7 @@ export class LightningTime {
     }
     const millis = (elapsed * 86400000) / (charges > 0 ? 65536 : 4096)
 
-    return msToTime(millis).date
+    return msToTime(millis)
   }
 
   getColors(lightningString: string): Colors {
